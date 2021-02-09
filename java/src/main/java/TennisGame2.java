@@ -13,10 +13,14 @@ public class TennisGame2 implements TennisGame
         this.player1Name = player1Name;
         this.player2Name = player2Name;
     }
+    /*
+    * Zustände lesbar machen, eventuell Booleans
+    * */
 
     public String getScore(){
         String score = "";
-        if (P1point == P2point && P1point < 4)
+        boolean zustandKleiner4 = P1point == P2point && P1point < 4;
+        if (zustandKleiner4)
         {
             if (P1point==0)
                 score = "Love";
