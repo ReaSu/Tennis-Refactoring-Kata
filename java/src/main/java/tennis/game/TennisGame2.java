@@ -1,6 +1,4 @@
-package tennisGame;
-
-import tennisGame.TennisGame;
+package tennis.game;
 
 public class TennisGame2 implements TennisGame {
     public int P1point = 0;
@@ -18,6 +16,7 @@ public class TennisGame2 implements TennisGame {
     }
     /*
      * Zustände lesbar machen, eventuell Booleans
+     * Alle Warnings ausbessern
      * */
 
     public String getScore() {

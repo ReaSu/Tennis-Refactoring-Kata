@@ -1,4 +1,4 @@
-package tennisGame;
+package tennis.game;
 
 import static org.junit.Assert.*;
 

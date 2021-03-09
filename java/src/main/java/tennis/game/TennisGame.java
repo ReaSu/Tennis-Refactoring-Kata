@@ -1,4 +1,4 @@
-package tennisGame;
+package tennis.game;
 
 public interface TennisGame {
     void wonPoint(String playerName);
