@@ -1,13 +1,13 @@
 package tennis.game;
 
 public class TennisGame2 implements TennisGame {
-    public int P1point = 0;
-    public int P2point = 0;
+    private int player1points = 0;
+    private int player2points = 0;
 
-    public String P1res = "";
-    public String P2res = "";
-    private String player1Name;
-    private String player2Name;
+    private String player1score = "";
+    private String player2score = "";
+    private final String player1Name;   // todo: unused - wozu brauchen wir die?
+    private final String player2Name;
 
 
     public TennisGame2(String player1Name, String player2Name) {
@@ -21,26 +21,26 @@ public class TennisGame2 implements TennisGame {
 
     public String getScore() {
         String score = "";
-        boolean equalPointsLessThan4 = P1point == P2point && P1point < 4;
-        boolean equalPointsLargerThan3 = P1point == P2point && P1point >= 3;
-        boolean playerOneLeadsPlayerTwo0 = P1point > 0 && P2point == 0;
-        boolean playerOneLeadsPlayerOneLessThan4 = P1point > P2point && P1point < 4;
-        boolean playerTwoLeadsPlayerTwoLessThan4 = P2point > P1point && P2point < 4;
-        boolean playerOneLeadsPlayerTwoLargerThanSame3 = P1point > P2point && P2point >= 3;
-        boolean playerTwoLeadsPlayerOneLargerThanSame3 = P2point > P1point && P1point >= 3;
-        boolean playerOneLargerSame4andPlayerTwoLargerSame0andLeadsByLargerEquals2 = P1point >= 4 && P2point >= 0 && (P1point - P2point) >= 2;
-        boolean playerTwoLargerThanEquals4andLeadsByLargerEquals2 = P2point >= 4 && P1point >= 0 && (P2point - P1point) >= 2;
-        boolean playerTwoLeadsPlayerOne0 = P2point > 0 && P1point == 0;
+        boolean equalPointsLessThan4 = player1points == player2points && player1points < 4;
+        boolean equalPointsLargerThan3 = player1points == player2points && player1points >= 3;
+        boolean playerOneLeadsPlayerTwo0 = player1points > 0 && player2points == 0;
+        boolean playerOneLeadsPlayerOneLessThan4 = player1points > player2points && player1points < 4;
+        boolean playerTwoLeadsPlayerTwoLessThan4 = player2points > player1points && player2points < 4;
+        boolean playerOneLeadsPlayerTwoLargerThanSame3 = player1points > player2points && player2points >= 3;
+        boolean playerTwoLeadsPlayerOneLargerThanSame3 = player2points > player1points && player1points >= 3;
+        boolean playerOneLargerSame4andPlayerTwoLargerSame0andLeadsByLargerEquals2 = player1points >= 4 && player2points >= 0 && (player1points - player2points) >= 2;
+        boolean playerTwoLargerThanEquals4andLeadsByLargerEquals2 = player2points >= 4 && player1points >= 0 && (player2points - player1points) >= 2;
+        boolean playerTwoLeadsPlayerOne0 = player2points > 0 && player1points == 0;
 
 
         if (equalPointsLessThan4) {
-            if (P1point == 0) {
+            if (player1points == 0) {
                 score = "Love";
             }
-            if (P1point == 1) {
+            if (player1points == 1) {
                 score = "Fifteen";
             }
-            if (P1point == 2) {
+            if (player1points == 2) {
                 score = "Thirty";
             }
             score += "-All";
@@ -50,51 +50,51 @@ public class TennisGame2 implements TennisGame {
         }
 
         if (playerOneLeadsPlayerTwo0) {
-            if (P1point == 1)
-                P1res = "Fifteen";
-            if (P1point == 2)
-                P1res = "Thirty";
-            if (P1point == 3)
-                P1res = "Forty";
+            if (player1points == 1)
+                player1score = "Fifteen";
+            if (player1points == 2)
+                player1score = "Thirty";
+            if (player1points == 3)
+                player1score = "Forty";
 
-            P2res = "Love";
-            score = P1res + "-" + P2res;
+            player2score = "Love";
+            score = player1score + "-" + player2score;
         }
         if (playerTwoLeadsPlayerOne0) {
-            if (P2point == 1)
-                P2res = "Fifteen";
-            if (P2point == 2)
-                P2res = "Thirty";
-            if (P2point == 3)
-                P2res = "Forty";
+            if (player2points == 1)
+                player2score = "Fifteen";
+            if (player2points == 2)
+                player2score = "Thirty";
+            if (player2points == 3)
+                player2score = "Forty";
 
-            P1res = "Love";
-            score = P1res + "-" + P2res;
+            player1score = "Love";
+            score = player1score + "-" + player2score;
         }
 
         if (playerOneLeadsPlayerOneLessThan4) {
 
-            if (P1point == 2)
-                P1res = "Thirty";
-            if (P1point == 3)
-                P1res = "Forty";
-            if (P2point == 1)
-                P2res = "Fifteen";
-            if (P2point == 2)
-                P2res = "Thirty";
-            score = P1res + "-" + P2res;
+            if (player1points == 2)
+                player1score = "Thirty";
+            if (player1points == 3)
+                player1score = "Forty";
+            if (player2points == 1)
+                player2score = "Fifteen";
+            if (player2points == 2)
+                player2score = "Thirty";
+            score = player1score + "-" + player2score;
         }
 
         if (playerTwoLeadsPlayerTwoLessThan4) {
-            if (P2point == 2)
-                P2res = "Thirty";
-            if (P2point == 3)
-                P2res = "Forty";
-            if (P1point == 1)
-                P1res = "Fifteen";
-            if (P1point == 2)
-                P1res = "Thirty";
-            score = P1res + "-" + P2res;
+            if (player2points == 2)
+                player2score = "Thirty";
+            if (player2points == 3)
+                player2score = "Forty";
+            if (player1points == 1)
+                player1score = "Fifteen";
+            if (player1points == 2)
+                player1score = "Thirty";
+            score = player1score + "-" + player2score;
         }
 
         if (playerOneLeadsPlayerTwoLargerThanSame3) {
@@ -132,11 +132,11 @@ public class TennisGame2 implements TennisGame {
     }
 
     public void P1Score() {
-        P1point++;
+        player1points++;
     }
 
     public void P2Score() {
-        P2point++;
+        player2points++;
     }
 
     public void wonPoint(String player) {
