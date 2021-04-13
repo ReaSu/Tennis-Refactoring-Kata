@@ -15,7 +15,7 @@ public class TennisGame2 implements TennisGame {
         this.player2Name = player2Name;
     }
     /*
-     * Zustände lesbar machen, eventuell Booleans
+     * done - Zustände lesbar machen, eventuell Booleans
      * Alle Warnings ausbessern
      * */
 
