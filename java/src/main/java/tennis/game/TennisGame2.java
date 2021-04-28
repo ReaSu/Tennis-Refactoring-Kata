@@ -1,11 +1,23 @@
 package tennis.game;
 
 public class TennisGame2 implements TennisGame {
+    public static final String FIFTEEN = "Fifteen";
+    public static final String THIRTY = "Thirty";
+    public static final String FORTY = "Forty";
+    public static final String LOVE = "Love";
+    public static final String DEUCE = "Deuce";
+    public static final String ALL = "All";
+    public static final String SEPARATOR = "-";
+    public static final String BLANK = " ";
+    public static final String PLAYER_1 = "player1";
+    public static final String PLAYER_2 = "player2";
+    public static final String ADVANTAGE = "Advantage";
+    public static final String WIN_FOR = "Win for";
     private int playerOnePoints = 0;
     private int playerTwoPoints = 0;
 
-    private String player1score = "";
-    private String player2score = "";
+    private String playerOneScore = "";
+    private String playerTwoScore = "";
 
     /*
      * done - Zustände lesbar machen, eventuell Booleans Alle Warnings ausbessern
@@ -28,82 +40,82 @@ public class TennisGame2 implements TennisGame {
 
         if (equalPointsLessThan4) {
             if (playerOnePoints == 0) {
-                score = "Love";
+                score = LOVE;
             }
             if (playerOnePoints == 1) {
-                score = "Fifteen";
+                score = FIFTEEN;
             }
             if (playerOnePoints == 2) {
-                score = "Thirty";
+                score = THIRTY;
             }
-            score += "-All";
+            score += SEPARATOR + ALL;
         }
         if (equalPointsLargerThan3) {
-            score = "Deuce";
+            score = DEUCE;
         }
 
         if (playerOneLeadsPlayerTwo0) {
             if (playerOnePoints == 1)
-                player1score = "Fifteen";
+                playerOneScore = FIFTEEN;
             if (playerOnePoints == 2)
-                player1score = "Thirty";
+                playerOneScore = THIRTY;
             if (playerOnePoints == 3)
-                player1score = "Forty";
+                playerOneScore = FORTY;
 
-            player2score = "Love";
-            score = player1score + "-" + player2score;
+            playerTwoScore = LOVE;
+            score = playerOneScore + SEPARATOR + playerTwoScore;
         }
         if (playerTwoLeadsPlayerOne0) {
             if (playerTwoPoints == 1)
-                player2score = "Fifteen";
+                playerTwoScore = FIFTEEN;
             if (playerTwoPoints == 2)
-                player2score = "Thirty";
+                playerTwoScore = THIRTY;
             if (playerTwoPoints == 3)
-                player2score = "Forty";
+                playerTwoScore = FORTY;
 
-            player1score = "Love";
-            score = player1score + "-" + player2score;
+            playerOneScore = LOVE;
+            score = playerOneScore + SEPARATOR + playerTwoScore;
         }
 
         if (playerOneLeadsPlayerOneLessThan4) {
 
             if (playerOnePoints == 2)
-                player1score = "Thirty";
+                playerOneScore = THIRTY;
             if (playerOnePoints == 3)
-                player1score = "Forty";
+                playerOneScore = FORTY;
             if (playerTwoPoints == 1)
-                player2score = "Fifteen";
+                playerTwoScore = FIFTEEN;
             if (playerTwoPoints == 2)
-                player2score = "Thirty";
-            score = player1score + "-" + player2score;
+                playerTwoScore = THIRTY;
+            score = playerOneScore + SEPARATOR + playerTwoScore;
         }
 
         if (playerTwoLeadsPlayerTwoLessThan4) {
             if (playerTwoPoints == 2)
-                player2score = "Thirty";
+                playerTwoScore = THIRTY;
             if (playerTwoPoints == 3)
-                player2score = "Forty";
+                playerTwoScore = FORTY;
             if (playerOnePoints == 1)
-                player1score = "Fifteen";
+                playerOneScore = FIFTEEN;
             if (playerOnePoints == 2)
-                player1score = "Thirty";
-            score = player1score + "-" + player2score;
+                playerOneScore = THIRTY;
+            score = playerOneScore + SEPARATOR + playerTwoScore;
         }
 
         if (playerOneLeadsPlayerTwoLargerThanSame3) {
-            score = "Advantage player1";
+            score = ADVANTAGE + BLANK + PLAYER_1;
         }
 
         if (playerTwoLeadsPlayerOneLargerThanSame3) {
-            score = "Advantage player2";
+            score = ADVANTAGE + BLANK + PLAYER_2;
         }
 
         if (playerOneLargerSame4andPlayerTwoLargerSame0andLeadsByLargerEquals2) {
-            score = "Win for player1";
+            score = WIN_FOR + BLANK + PLAYER_1;
         }
 
         if (playerTwoLargerThanEquals4andLeadsByLargerEquals2) {
-            score = "Win for player2";
+            score = WIN_FOR + BLANK + PLAYER_2;
         }
         return score;
     }
@@ -117,7 +129,7 @@ public class TennisGame2 implements TennisGame {
     }
 
     public void wonPoint(String player) {
-        if (player.equals("player1"))
+        if (player.equals(PLAYER_1))
             playerOneScored();
         else
             playerTwoScored();
