@@ -1,18 +1,19 @@
 package tennis.game;
 
 public class TennisGame2 implements TennisGame {
-    public static final String FIFTEEN = "Fifteen";
-    public static final String THIRTY = "Thirty";
-    public static final String FORTY = "Forty";
-    public static final String LOVE = "Love";
-    public static final String DEUCE = "Deuce";
-    public static final String ALL = "All";
-    public static final String SEPARATOR = "-";
-    public static final String BLANK = " ";
-    public static final String PLAYER_1 = "player1";
-    public static final String PLAYER_2 = "player2";
-    public static final String ADVANTAGE = "Advantage";
-    public static final String WIN_FOR = "Win for";
+    private static final String FIFTEEN = "Fifteen";
+    private static final String THIRTY = "Thirty";
+    private static final String FORTY = "Forty";
+    private static final String LOVE = "Love";
+    private static final String DEUCE = "Deuce";
+    private static final String ALL = "All";
+    private static final String SEPARATOR = "-";
+    private static final String BLANK = " ";
+    private static final String PLAYER_1 = "player1";
+    private static final String PLAYER_2 = "player2";
+    private static final String ADVANTAGE = "Advantage";
+    private static final String WIN_FOR = "Win for";
+
     private int playerOnePoints = 0;
     private int playerTwoPoints = 0;
 
@@ -78,7 +79,6 @@ public class TennisGame2 implements TennisGame {
         }
 
         if (playerOneLeadsPlayerOneLessThan4) {
-
             if (playerOnePoints == 2)
                 playerOneScore = THIRTY;
             if (playerOnePoints == 3)
@@ -129,9 +129,10 @@ public class TennisGame2 implements TennisGame {
     }
 
     public void wonPoint(String player) {
-        if (player.equals(PLAYER_1))
+        if (player.equals(PLAYER_1)) {
             playerOneScored();
-        else
+        } else {
             playerTwoScored();
+        }
     }
 }
