@@ -40,17 +40,10 @@ public class TennisGame2 implements TennisGame {
         boolean playerTwoLeadsPlayerOne0 = playerTwoPoints > 0 && playerOnePoints == 0;
 
         if (equalPointsLessThan4) {
-            if (playerOnePoints == 0) {
-                score = LOVE;
-            }
-            if (playerOnePoints == 1) {
-                score = FIFTEEN;
-            }
-            if (playerOnePoints == 2) {
-                score = THIRTY;
-            }
+            score = getPlayerScore(playerOnePoints);
             score += SEPARATOR + ALL;
         }
+
         if (equalPointsLargerThan3) {
             score = DEUCE;
         }
