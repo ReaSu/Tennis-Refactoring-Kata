@@ -55,50 +55,10 @@ public class TennisGame2 implements TennisGame {
             score = DEUCE;
         }
 
-        if (playerOneLeadsPlayerTwo0) {
-            if (playerOnePoints == 1)
-                playerOneScore = FIFTEEN;
-            if (playerOnePoints == 2)
-                playerOneScore = THIRTY;
-            if (playerOnePoints == 3)
-                playerOneScore = FORTY;
+        if (playerTwoLeadsPlayerTwoLessThan4 || playerOneLeadsPlayerOneLessThan4 || playerTwoLeadsPlayerOne0 || playerOneLeadsPlayerTwo0) {
+            playerOneScore = getPlayerScore(playerOnePoints);
+            playerTwoScore = getPlayerScore(playerTwoPoints);
 
-            playerTwoScore = LOVE;
-            score = playerOneScore + SEPARATOR + playerTwoScore;
-        }
-        if (playerTwoLeadsPlayerOne0) {
-            if (playerTwoPoints == 1)
-                playerTwoScore = FIFTEEN;
-            if (playerTwoPoints == 2)
-                playerTwoScore = THIRTY;
-            if (playerTwoPoints == 3)
-                playerTwoScore = FORTY;
-
-            playerOneScore = LOVE;
-            score = playerOneScore + SEPARATOR + playerTwoScore;
-        }
-
-        if (playerOneLeadsPlayerOneLessThan4) {
-            if (playerOnePoints == 2)
-                playerOneScore = THIRTY;
-            if (playerOnePoints == 3)
-                playerOneScore = FORTY;
-            if (playerTwoPoints == 1)
-                playerTwoScore = FIFTEEN;
-            if (playerTwoPoints == 2)
-                playerTwoScore = THIRTY;
-            score = playerOneScore + SEPARATOR + playerTwoScore;
-        }
-
-        if (playerTwoLeadsPlayerTwoLessThan4) {
-            if (playerTwoPoints == 2)
-                playerTwoScore = THIRTY;
-            if (playerTwoPoints == 3)
-                playerTwoScore = FORTY;
-            if (playerOnePoints == 1)
-                playerOneScore = FIFTEEN;
-            if (playerOnePoints == 2)
-                playerOneScore = THIRTY;
             score = playerOneScore + SEPARATOR + playerTwoScore;
         }
 
@@ -118,6 +78,22 @@ public class TennisGame2 implements TennisGame {
             score = WIN_FOR + BLANK + PLAYER_2;
         }
         return score;
+    }
+
+    private String getPlayerScore(int playerPoints) {
+        if (playerPoints == 0) {
+            return LOVE;
+        }
+        if (playerPoints == 1) {
+            return FIFTEEN;
+        }
+        if (playerPoints == 2) {
+            return THIRTY;
+        }
+        if (playerPoints == 3) {
+            return FORTY;
+        }
+        return "";
     }
 
     private void playerOneScored() {
